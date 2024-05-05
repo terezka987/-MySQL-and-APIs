@@ -22,4 +22,10 @@ INSERT INTO enrolments (CourseID, UserID) VALUES (5,10);
 UPDATE enrolments SET Mark = 1 WHERE CourseID =5 AND UserID = 10;
 -- 6) Access control for Admins, Teachers and Students: Ensure only the authorized access can
 -- perform an action. For example, only teachers can pass/fail a student.
+-- Is user a student?
+SELECT * FROM users JOIN roles ON roles.RoleID = users.RoleID WHERE Role = "Student" AND UserID = 10;
+-- Is user an admin?
+SELECT * FROM users JOIN roles ON roles.RoleID = users.RoleID WHERE Role = "Admin" AND UserID = 10;
+-- Is user a teacher?
+SELECT * FROM users JOIN roles ON roles.RoleID = users.RoleID WHERE Role = "Teacher" AND UserID = 10;
 
